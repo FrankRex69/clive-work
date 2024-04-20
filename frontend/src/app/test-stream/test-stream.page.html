@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>testStream</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content overflow-scroll="true">  
+  
+  <ion-grid>
+  
+    <ion-row>
+      <ion-button color="secondary" id="button_server" onclick="btnstartserver()">Connect Server</ion-button>
+      <ion-button color="tertiary" id="button_start" onclick="requestMedia('fronte')">Start Stream</ion-button>      
+      <ion-button color="success" id="button_start_retrocam" onclick="requestMedia('retro')">Start Stream RetroCam</ion-button>
+      <ion-button color="warning" id="button_stop" onclick="btnstop()">Stop Streaming bis</ion-button>      
+      <ion-button color="medium" onclick="funzioneplayer(1,document.getElementById('option_url').value)">PLAY !!!!!</ion-button> 
+    </ion-row>
+    
+   
+  </ion-grid> 
+  
+</ion-content>

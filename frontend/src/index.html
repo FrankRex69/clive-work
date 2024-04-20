@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>CHOP</title>
+
+  <base href="/" />
+
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2"> 
+
+  <!-- Streaming transmission -->
+  <script src="./assets/libs/js/socket.io.js"></script> 
+  <script src="./assets/jstech/RetroFrontCam.js"></script>
+  
+  <!-- Streaming player -->
+  <script src="./assets/libs/js/flv.min.js"></script>   
+  <script src="./assets/jstech/flvplayer.js"></script>
+  
+</head>
+
+<body onload="listaDispositivi()">  
+  <input class="form" type="hidden" id="socket.io_address" value="/"/>
+  <h3 class="input-group input-group-lg" for="option_url">RTMP Destination:</h3>
+  <input style="width: 90%;" type="text" id="option_url" value="rtmp://www.chop.click:1941/test/a"/>
+  <br>
+  <input class="form" type="checkbox"  style="display:none" id="checkbox_Reconection" checked="true">
+  <label class="form" style="display:none" >Reconnection </label>   
+
+  <table>
+    <tr>
+      <td valign="bottom" style="text-align: center;">
+        <p id="output_message"></p>	
+        <video width="320" height="240" id="output_video" autoplay=true controls="controls" playsinline></video>		
+      </td>
+      <!-- <td valign="bottom" style="text-align: center;">
+        <video width="320" height="240" autoplay id="videoElementPlayer" controls="controls" playsinline></video>			
+      </td> -->
+    </tr>
+    <tr>
+      <td valign="bottom">
+        <button class="btn btn-primary btn-sm" id="button_server">Connect Server</button>
+      </td>
+    </tr>
+    <tr>
+      <td valign="bottom">
+        <button class="btn btn-primary btn-sm" id="button_start" onclick="requestMedia('fronte')">Start Stream</button>
+      </td>
+    </tr>
+    <tr>
+      <td valign="bottom">
+        <button class="btn btn-primary btn-sm" id="button_start_retrocam" onclick="requestMedia('retro')">Start Stream RetroCam</button>
+      </td>
+    </tr>
+    <tr>
+      <td valign="bottom">			
+        <button class="btn btn-primary btn-sm" id="button_stop">Stop Streaming</button>					
+      </td>		
+    </tr>
+    <tr>
+      <td valign="bottom">
+        <button class="btn btn-secondary" onclick="funzioneplayer(1,document.getElementById('option_url').value)">Start player TEST 1</button>						
+      </td>
+      <td valign="bottom">				
+        <!-- <svg id="recording" height="50" width="50"> -->
+          <circle id="recordingCircle" cx="25" cy="25" r="20" stroke="black" stroke-width="1" fill="gray" hidden/>
+        <!-- </svg> -->
+      </td>
+      <td></td>		
+    </tr>
+  </table>
+  <app-root></app-root>
+  <script src="./assets/jstech/ConnStreamRtmp.js"></script>
+</body>
+
+</html>
