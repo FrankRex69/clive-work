@@ -35,12 +35,15 @@ app.use('/*', (req, res) => { res.sendFile(path.join(__dirname, '../frontend/www
 //----------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------
 
-const server: any = require('https').createServer( 
-	{
-		key: fs.readFileSync('/etc/letsencrypt/live/www.chop.click/privkey.pem'),
-    	cert: fs.readFileSync('/etc/letsencrypt/live/www.chop.click/cert.pem')
-	},
-app);
+const server: any = require('http').createServer(app);
+
+
+// const server: any = require('https').createServer( 
+// 	{
+// 		key: fs.readFileSync('/etc/letsencrypt/live/www.chop.click/privkey.pem'),
+//     	cert: fs.readFileSync('/etc/letsencrypt/live/www.chop.click/cert.pem')
+// 	},
+// app);
 
 /* 
 https.createServer({
@@ -51,7 +54,7 @@ https.createServer({
     
   .listen(port, () => { 
     //CHOP.CLICK----------------------------------------
-    console.log(`https://www.chop.click:${port}/test-stream`); 
+    console.log(`http://localhost:${port}/test-stream`); 
     //--------------------------------------------------
 
     console.log(`https://www.collaudolive.com:${port}/alfanumcasuale`); 
@@ -90,7 +93,7 @@ https.createServer({
 
 const io = require('socket.io')(server, {
     cors: {
-       origini: `https://www.chop.click:${port}`,
+       origini: `http://localhost:${port}`,
         methods: ["GET", "POST"],
         transports: ['websocket', 'polling'],
         credentials: true
@@ -281,7 +284,7 @@ io.on('error',function(e: any){
 
 
 server.listen(port, function(){  
-  console.log(`https://www.chop.click:${port}/test-stream`); 
+  console.log(`http://localhost:${port}/test`); 
 });
 
 process.on('uncaughtException', function(err) {

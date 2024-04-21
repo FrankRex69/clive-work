@@ -645,7 +645,7 @@ exports.sincroDb = async (req: any, res: any, next: any) => {
         //res.status(status).send('Error: %s', err);
         //res.send('Error: %s', err); 
         console.error('Error: %s', err);
-        console.error('Error: %s', err.stack);
+        // console.error('Error: %s', err.stack);
     }
     
     

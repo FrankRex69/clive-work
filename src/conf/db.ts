@@ -4,14 +4,24 @@ const mysql = require('mysql');
 const fs = require('fs');
 
 const conn = mysql.createConnection({
-    host     : crecry.dbhost,
-    user     : crecry.dbusername,
-    password : crecry.dbpassword,
-    database : crecry.db,
-    ssl: {
-        rejectUnauthorized: false,
-        ca: fs.readFileSync('/etc/letsencrypt/live/www.collaudolive.xyz/cert.pem').toString()  
-    }
+    host     : 'localhost',
+    user     : 'user',
+    password : 'password',
+    database : 'db',
+    // ssl: {
+    //     rejectUnauthorized: false,
+    //     ca: fs.readFileSync('/etc/letsencrypt/live/www.collaudolive.xyz/cert.pem').toString()  
+    // }
 });
+
+conn.query("SELECT * FROM rappre_prog_gisfo", (err: any, result: any) => {
+    if (err) {
+      console.error(err)      
+
+      return
+    }
+    //console.log(result);
+
+  });
 
 module.exports = conn;

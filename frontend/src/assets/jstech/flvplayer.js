@@ -10,7 +10,8 @@
 			const words = urlrtmp.split('/');
 			let startString = (urlrtmp.search(words[3]));
 			let suffissoUrlStream = (urlrtmp.substring(startString,urlrtmp.length));
-			let urlstream = 'wss://www.chop.click:8471/'+suffissoUrlStream+'.flv';					
+			//let urlstream = 'wss://www.chop.click:8471/'+suffissoUrlStream+'.flv';
+			let urlstream = 'ws://localhost:8471/'+suffissoUrlStream+'.flv';				
 			let secRefresh = 30;        				
                   	 	
 			switch(valore) {
