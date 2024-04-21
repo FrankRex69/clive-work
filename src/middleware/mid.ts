@@ -1,7 +1,6 @@
 exports.checkAuth = (req: any, res: any, next: any)=>{    
     
-    console.log(req.headers['authorization']);
-    
+    console.log(req.headers['authorization']);    
 
     const jwtRecall = require('./jwt');
 
@@ -15,7 +14,7 @@ exports.checkAuth = (req: any, res: any, next: any)=>{
         {
             let token = req.headers['authorization'];            
               
-            // token = token.slice(7,token.length);
+            token = token.slice(7,token.length);
             jwtRecall.checkToken(token);     
             next();
         }        
@@ -24,6 +23,5 @@ exports.checkAuth = (req: any, res: any, next: any)=>{
         console.log('bbbbb');
         res.sendStatus(401);
     }
-
     
 }

@@ -13,11 +13,11 @@ const config = {
     port: 8015,
     allow_origin: '*'
   },
-  https: {
-    port: 8471,    
-    key: '/etc/letsencrypt/live/www.chop.click/privkey.pem',
-    cert: '/etc/letsencrypt/live/www.chop.click/cert.pem'
-    }
+  // https: {
+  //   port: 8471,    
+  //   key: '/etc/letsencrypt/live/www.chop.click/privkey.pem',
+  //   cert: '/etc/letsencrypt/live/www.chop.click/cert.pem'
+  //   }
 };
  
 var nms = new NodeMediaServer(config)

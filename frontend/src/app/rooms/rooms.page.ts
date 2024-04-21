@@ -55,10 +55,12 @@ export class RoomsPage implements OnInit {
             } else {
               // se non sei passato dal login e non c'è il codice 
               // entra come utente 2 - Ospiti (user) 
-              codiceUtente = 'tCBK24ur9O';
+              codiceUtente = 'admin';
             }
             console.log('codiceUtente: ', codiceUtente);
             const user = users.find(user => user.idutcas === codiceUtente);
+            console.log('---ggg' + user);
+            
             this.authService.onLogin(user);
             return this.roomService.loadRooms();
           }),

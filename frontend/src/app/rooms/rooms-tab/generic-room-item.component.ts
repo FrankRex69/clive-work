@@ -15,7 +15,7 @@ export class GenericRoomItemComponent implements OnInit {
 
   @Input() room: Room;
   isFavourite: boolean;
-  baseUrl = 'https://www.collaudolive.com:9777/glasses/FrontEnd/src/index.php?q=';
+  baseUrl = 'http://localhost:9777/glasses/FrontEnd/src/index.php?q=';
   linkProgetto: string;
 
   constructor(
@@ -118,7 +118,7 @@ export class GenericRoomItemComponent implements OnInit {
         if (value) {
           const link = document.createElement('a');
           //link.setAttribute('target', '_blank');
-          //link.setAttribute('href', `https://www.collaudolive.com:9083/downloadzip/${nomeProgetto}`);
+          //link.setAttribute('href', `http://localhost:9091/downloadzip/${nomeProgetto}`);
           link.setAttribute('href', `${environment.apiUrl}/downloadzip/${nomeProgetto}`);
           link.setAttribute('download', `${nomeProgetto}.zip`);
           document.body.appendChild(link);
@@ -128,7 +128,7 @@ export class GenericRoomItemComponent implements OnInit {
         else {
           this.presentToast(`Non ci sono foto sul progetto ${nomeProgetto}!`, 'danger')
         }
-        //window.open(`https://www.collaudolive.com:9083/downloadzip/${nomeProgetto}`)
+        //window.open(`http://localhost:9091/downloadzip/${nomeProgetto}`)
       }
     )
 
@@ -136,7 +136,7 @@ export class GenericRoomItemComponent implements OnInit {
     // const nomeProgetto = this.room.nome_progetto.trim().replace(' ', '');
     // this.roomService.checkDownload(nomeProgetto).subscribe(
     //   (value: boolean) => {
-    //     if (value) window.open(`https://www.collaudolive.com:9083/downloadzip/${nomeProgetto}`)           
+    //     if (value) window.open(`http://localhost:9091/downloadzip/${nomeProgetto}`)           
     //     else this.presentToast(`Non ci sono foto sul progetto ${nomeProgetto}!`, 'danger')
     //   }
     // )

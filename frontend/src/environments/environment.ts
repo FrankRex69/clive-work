@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://www.collaudolive.com:9083',
+  apiUrl: 'http://localhost:9091',
   tokenString: 'tokendev'
 };
 

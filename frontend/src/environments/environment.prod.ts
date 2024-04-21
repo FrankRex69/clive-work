@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://www.collaudolive.com:9666',
+  apiUrl: 'http://localhost:9666',
   tokenString: 'token'
 };

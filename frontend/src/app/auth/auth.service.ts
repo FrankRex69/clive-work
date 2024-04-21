@@ -39,6 +39,8 @@ export class AuthService {
 
   onLogin(user: User) {
     if (this.userCod === '') {
+      console.log('--->' + user);
+      
       this.userCod = user.autorizzazione === 'admin' ? '0' : user.idutcas;
       this.currentUser.next(user);
     }
