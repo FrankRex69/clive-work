@@ -37,7 +37,7 @@ exports.checkLogin = (req: any, res: any, next: any) => {
         
     const db = require('../conf/db'); 
 
-    if(pkproject==0){9
+    if(pkproject==0){
       select = "SELECT id FROM utenti WHERE username = ? AND password = ?";
       datiDb = [usr, pwd];
     }
